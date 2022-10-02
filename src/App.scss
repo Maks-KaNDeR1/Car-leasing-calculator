@@ -1,0 +1,43 @@
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+
+  h1 {
+    width: 735px;
+    font-size: 55px;
+    @media screen and (max-width: 768px) {
+      width: 280px;
+    }
+  }
+
+  .sliderItem {
+    display: flex;
+    width: 1345px;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1440px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .item {
+    display: flex;
+    width: 1345px;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    @media screen and (max-width: 1440px) {
+      display: grid;
+      width: 600px;
+      grid-template-columns: 400px 400px;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

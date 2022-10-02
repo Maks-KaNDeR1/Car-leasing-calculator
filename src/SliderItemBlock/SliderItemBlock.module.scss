@@ -1,0 +1,103 @@
+.item {
+    height: 119px;
+    width: 427px;
+    margin: 10px 0;
+
+    .item__title {
+        font-size: 17px;
+        color: rgb(109, 109, 109);
+    }
+
+    .item__price {
+        position: relative;
+        width: 427px;
+        height: 65px;
+
+        margin-top: 20px;
+
+        @media screen and (max-width: 1440px) {
+            width: 958px;
+        }
+        @media screen and (max-width: 1024px) {
+            width: 736px;
+        }
+        @media screen and (max-width: 768px) {
+            width: 310px;
+        }
+
+        .item__input {
+            position: relative;
+            outline: none;
+            border: none;
+            font-size: 27px;
+            height: 55px;
+            font-weight: 900;
+            padding: 10px 20px;
+            border-radius: 18px;
+            color: rgb(88, 88, 88);
+            background-color: #f3f3f3;
+            border: 1px solid #f3f3f3;
+
+            @media screen and (max-width: 1440px) {
+                width: 928px;
+            }
+            @media screen and (max-width: 1024px) {
+                width: 696px;
+            }
+            @media screen and (max-width: 768px) {
+                width: 280px;
+            }
+        }
+
+        :disabled {
+            opacity: 0.5;
+        }
+
+        :focus {
+            background-color: #fff;
+        }
+
+        .input__item {
+            position: absolute;
+            font-size: 27px;
+            font-weight: 900;
+            color: rgb(88, 88, 88);
+
+            top: 24%;
+            right: 10px;
+        }
+
+        .input__itemBack {
+            position: absolute;
+            font-size: 24px;
+            font-weight: 800;
+            color: rgb(88, 88, 88);
+            background-color: #EBEBEC;
+            padding: 13px;
+            border-radius: 15px;
+
+            top: 15%;
+            right: 3px;
+        }
+    }
+
+    .slider {
+        margin: 5.5px 22px 0 22px;
+        outline: none;
+        height: 32px;
+        width: 387px;
+        border-radius: 19px;
+
+        @media screen and (max-width: 1440px) {
+            width: 918px;
+        }
+        @media screen and (max-width: 1024px) {
+            width: 686px;
+        }
+        @media screen and (max-width: 768px) {
+            width: 270px;
+        }
+    }
+
+
+}
