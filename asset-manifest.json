@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/car-leasing-calculator/static/css/main.83266a83.css",
+    "main.js": "/car-leasing-calculator/static/js/main.adc5bf34.js",
+    "static/js/787.b5f330c5.chunk.js": "/car-leasing-calculator/static/js/787.b5f330c5.chunk.js",
+    "index.html": "/car-leasing-calculator/index.html",
+    "main.83266a83.css.map": "/car-leasing-calculator/static/css/main.83266a83.css.map",
+    "main.adc5bf34.js.map": "/car-leasing-calculator/static/js/main.adc5bf34.js.map",
+    "787.b5f330c5.chunk.js.map": "/car-leasing-calculator/static/js/787.b5f330c5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83266a83.css",
+    "static/js/main.adc5bf34.js"
+  ]
+}
