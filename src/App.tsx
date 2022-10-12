@@ -11,7 +11,7 @@ function App() {
 
   const [price, setPrice] = useState(strFmt(3300000))
   const [contribution, setContribution] = useState(strFmt(420000))
-  const [period, setPeriod] = useState(strFmt(60))
+  const [period, setPeriod] = useState(strFmt(12))
 
   const [leasingAmount, setLeasingAmount] = useState(strFmt(4467313))
   const [monthlyPayment, setMonthlyPayment] = useState(strFmt(114455))
