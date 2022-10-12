@@ -1,50 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import { SliderItemBlock } from './SliderItemBlock/SliderItemBlock';
 import { ItemSum } from './ItemSum/ItemSum';
 import { Button } from './Button/Button';
-import axios from 'axios';
 import { requestAPI } from './api';
+import { numbFmt, strFmt } from './utils/formatСonversion';
 
 
 function App() {
 
-  const [price, setPrice] = useState(3300000)
-  const [contribution, setContribution] = useState(420000)
-  const [period, setPeriod] = useState(60)
+  const [price, setPrice] = useState(strFmt(3300000))
+  const [contribution, setContribution] = useState(strFmt(420000))
+  const [period, setPeriod] = useState(strFmt(60))
 
-  const [leasingAmount, setLeasingAmount] = useState(4467313)
-  const [monthlyPayment, setMonthlyPayment] = useState(114455)
+  const [leasingAmount, setLeasingAmount] = useState(strFmt(4467313))
+  const [monthlyPayment, setMonthlyPayment] = useState(strFmt(114455))
 
   const [loading, setLoading] = useState(false)
-  const [percent, setPercent] = useState(10)
+  const [percent, setPercent] = useState(strFmt(10))
 
   const [minPerc, setMinPerc] = useState(0)
   const [maxPerc, setMaxPerc] = useState(0)
 
-  const monthPay = (price - contribution)
-    * ((0.035 * Math.pow((1 + 0.035), period))
-      / (Math.pow((1 + 0.035), period) - 1));
+  const monthPay = (numbFmt(price) - numbFmt(contribution))
+    * ((0.035 * Math.pow((1 + 0.035), numbFmt(period)))
+      / (Math.pow((1 + 0.035), numbFmt(period)) - 1));
 
-  //monthPay - 36080
   useEffect(() => {
-    setMinPerc(Math.round(price * 0.1))
-    setMaxPerc(Math.round(price * 0.6))
+    setMinPerc(Math.round(numbFmt(price) * 0.1))
+    setMaxPerc(Math.round(numbFmt(price) * 0.6))
 
-    const mathPerc = Math.round(contribution / (price / 10) * 10);
-    setPercent(mathPerc)
+    const mathPerc = Math.round(numbFmt(contribution) / (numbFmt(price) / 10) * 10);
 
-    setLeasingAmount(contribution + period * monthlyPayment)
+    setPercent(strFmt(mathPerc))
+    const leasingAmountStr = numbFmt(contribution) + numbFmt(period) * numbFmt(monthlyPayment)
+    setLeasingAmount(strFmt(leasingAmountStr))
 
-    setMonthlyPayment(Math.round(monthPay))
+    const monthlyPaymentStr = Math.round(monthPay)
+    setMonthlyPayment(strFmt(monthlyPaymentStr))
   }, [price, contribution, percent, period, monthlyPayment, monthPay])
 
 
   const request = async () => {
     setLoading(true)
     try {
-      const res = await requestAPI(price, contribution, period, leasingAmount, percent)
+      const res = await requestAPI(
+        numbFmt(price),
+        numbFmt(contribution),
+        numbFmt(period),
+        numbFmt(leasingAmount),
+        numbFmt(percent)
+      )
 
       console.log(res)
     }
@@ -56,14 +62,14 @@ function App() {
     }
   }
 
-  if (contribution < Math.round(price * (10 / 100))) {
-    const minCont = Math.round(price * (10 / 100))
-    setContribution(minCont)
-  }
-  if (contribution > Math.round(price * (60 / 100))) {
-    const minCont = Math.round(price * (60 / 100))
-    setContribution(minCont)
-  }
+  // if (contribution < Math.round(price * (10 / 100))) {
+  //   const minCont = Math.round(price * (10 / 100))
+  //   setContribution(minCont)
+  // }
+  // if (contribution > Math.round(price * (60 / 100))) {
+  //   const minCont = Math.round(price * (60 / 100))
+  //   setContribution(minCont)
+  // }
 
 
 
@@ -75,28 +81,31 @@ function App() {
       <div className="sliderItem">
         <SliderItemBlock
           title={'Стоимость автомобиля'}
-          state={price}
+          state={numbFmt(price)}
           setState={setPrice}
           min={1000000}
           max={6000000}
           item={'₽'}
+          maxLengthInput={9}
         />
         <SliderItemBlock
           title={'Первоначальный взнос'}
-          state={contribution}
+          state={numbFmt(contribution)}
           setState={setContribution}
           min={minPerc}
           max={maxPerc}
           item={`${percent}%`}
           backgroundForItem
+          maxLengthInput={9}
         />
         <SliderItemBlock
           title={'Срок лизинга'}
-          state={period}
+          state={numbFmt(period)}
           setState={setPeriod}
           min={1}
           max={60}
           item={'мес.'}
+          maxLengthInput={2}
         />
       </div>
 

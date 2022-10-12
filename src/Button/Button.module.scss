@@ -21,3 +21,11 @@
         opacity: 0.5;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .button {
+        button {
+            width: 310px;
+        }
+    }
+}

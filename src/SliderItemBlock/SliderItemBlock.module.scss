@@ -15,16 +15,6 @@
 
         margin-top: 20px;
 
-        @media screen and (max-width: 1440px) {
-            width: 958px;
-        }
-        @media screen and (max-width: 1024px) {
-            width: 736px;
-        }
-        @media screen and (max-width: 768px) {
-            width: 310px;
-        }
-
         .item__input {
             position: relative;
             outline: none;
@@ -37,16 +27,6 @@
             color: rgb(88, 88, 88);
             background-color: #f3f3f3;
             border: 1px solid #f3f3f3;
-
-            @media screen and (max-width: 1440px) {
-                width: 928px;
-            }
-            @media screen and (max-width: 1024px) {
-                width: 696px;
-            }
-            @media screen and (max-width: 768px) {
-                width: 280px;
-            }
         }
 
         :disabled {
@@ -87,17 +67,48 @@
         height: 32px;
         width: 387px;
         border-radius: 19px;
+    }
+}
 
-        @media screen and (max-width: 1440px) {
+
+@media screen and (max-width: 1440px) {
+    .item {
+        .item__price {
+            width: 958px;
+            .item__input {
+                width: 928px;
+            }
+        }
+        .slider {
             width: 918px;
         }
-        @media screen and (max-width: 1024px) {
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .item {
+        .item__price {
+            width: 736px;
+            .item__input {
+                width: 696px;
+            }
+        }
+        .slider {
             width: 686px;
         }
-        @media screen and (max-width: 768px) {
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .item {
+        .item__price {
+            width: 310px;
+            .item__input {
+                width: 280px;
+            }
+        }
+        .slider {
             width: 270px;
         }
     }
-
-
 }

@@ -3,8 +3,8 @@ import styles from './ItemSum.module.scss'
 
 type PropsType = {
     title: string
-    state: number
-    setState: (value: number) => void
+    state: string
+    setState: (value: string) => void
 }
 
 export const ItemSum: React.FC<PropsType> = ({ title, state, setState }) => {
